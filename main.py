@@ -18,7 +18,23 @@ def encode(password):
 #  Takes in the encoded password and returns the original password.
 def decode(encoded_password):
     # FIXME Sara, please write the decoder function
-    pass
+    decoded_password = ''
+    for i in encoded_password:
+        # subtracts 3 from each digit
+        if int(i) >= 3:
+            variable = int(i)-3
+        if int(i) == 2:
+            # since 2-3=-1, the digit is 9
+            variable = 9
+        if int(i) == 1:
+            # since 1-3=-2, the digit is 8
+            variable = 8
+        if int(i) == 0:
+            # since 0-3=-3, the digit is 7
+            variable = 7
+        decoded_password += str(variable)
+
+    return decoded_password
 
 # Provides a looping menu that prompts the user to choose from a menu with encoder and decoder options.
 def main():
